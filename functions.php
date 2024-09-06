@@ -4,7 +4,6 @@
  *
  * @package Nova B2B
  */
-
 require get_stylesheet_directory() . '/bonn-update-checker/plugin-update-checker.php';
 
 $namespace = 'MLA_CEA';
@@ -55,9 +54,6 @@ add_action( 'acf/init', 'cea_af_init', 1 );
 function cea_af_init() {
 	require MLA_CEA_DIR_PATH . '/inc/autoloader.php';
 }
-
-
-
 /**
  * Add custom functions here
  */
