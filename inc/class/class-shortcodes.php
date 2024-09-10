@@ -33,6 +33,7 @@ class Shortcodes {
 	 */
 	public function __construct() {
 		add_shortcode( 'cea_filter', array( $this, 'cea_filter' ) );
+		add_shortcode( 'members_filter', array( $this, 'members_filter' ) );
 		add_shortcode( 'resource_filter', array( $this, 'resource_filter' ) );
 		add_shortcode( 'people_filter', array( $this, 'people_filter' ) );
 		add_shortcode( 'guidance_docs', array( $this, 'guidance_docs' ) );
@@ -45,13 +46,7 @@ class Shortcodes {
 		return ob_get_clean();
 	}
 
-	public function guidance_docs() {
-
-		ob_start();
-		get_template_part( 'inc/shortcodes/guidance', 'docs' );
-
-		wp_enqueue_style( 'fancybox' );
-		wp_enqueue_script( 'fancybox' );
+	public function fancybox_footer_init() {
 
 		add_action(
 			'wp_footer',
@@ -67,6 +62,17 @@ document.addEventListener('DOMContentLoaded', () => {
 			},
 			9999
 		);
+	}
+
+	public function guidance_docs() {
+
+		ob_start();
+		get_template_part( 'inc/shortcodes/guidance', 'docs' );
+
+		wp_enqueue_style( 'fancybox' );
+		wp_enqueue_script( 'fancybox' );
+
+		$this->fancybox_footer_init();
 
 		return ob_get_clean();
 	}
@@ -102,20 +108,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		wp_enqueue_style( 'fancybox' );
 		wp_enqueue_script( 'fancybox' );
 		wp_enqueue_script( 'mla-cea-filter' );
-		add_action(
-			'wp_footer',
-			function () {
-				?>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-	Fancybox.bind("[data-fancybox]");
-});
-</script>
 
-				<?php
-			},
-			9999
-		);
+		$this->fancybox_footer_init();
 
 		return ob_get_clean();
 	}
@@ -148,20 +142,28 @@ document.addEventListener('DOMContentLoaded', () => {
 		wp_enqueue_style( 'fancybox' );
 		wp_enqueue_script( 'fancybox' );
 		wp_enqueue_script( 'mla-cea-filter' );
-		add_action(
-			'wp_footer',
-			function () {
-				?>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-	Fancybox.bind("[data-fancybox]");
-});
-</script>
 
-				<?php
-			},
-			9999
-		);
+		$this->fancybox_footer_init();
+
+		return ob_get_clean();
+	}
+	/**
+	 * Filters the content of the membership.
+	 *
+	 * @param array $atts The shortcode attributes.
+	 * @return string The filtered content.
+	 */
+	public function members_filter() {
+
+		ob_start();
+
+		get_template_part( 'inc/shortcodes/members', 'filter' );
+
+		wp_enqueue_style( 'fancybox' );
+		wp_enqueue_script( 'fancybox' );
+		wp_enqueue_script( 'mla-cea-filter' );
+
+		$this->fancybox_footer_init();
 
 		return ob_get_clean();
 	}
