@@ -1,15 +1,4 @@
 <?php
-
-function filter_posts_where( $where, $wp_query ) {
-	global $wpdb;
-
-	if ( $title_like = $wp_query->get( 'title_like' ) ) {
-		$where .= " AND {$wpdb->posts}.post_title LIKE '" . esc_sql( $title_like ) . "'";
-	}
-
-	return $where;
-}
-
 $query = new WP_Query(
 	array(
 		'post_type'      => $args['post_type'],

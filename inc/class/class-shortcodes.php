@@ -38,6 +38,13 @@ class Shortcodes {
 		add_shortcode( 'people_filter', array( $this, 'people_filter' ) );
 		add_shortcode( 'guidance_docs', array( $this, 'guidance_docs' ) );
 		add_shortcode( 'single_resource', array( $this, 'single_resource' ) );
+		add_shortcode( 'certification_contents', array( $this, 'certification_contents' ) );
+	}
+
+	public function certification_contents() {
+		ob_start();
+		get_template_part( 'inc/shortcodes/certification', 'contents' );
+		return ob_get_clean();
 	}
 
 	public function single_resource() {

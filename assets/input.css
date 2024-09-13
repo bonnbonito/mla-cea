@@ -146,3 +146,9 @@ h6 {
 body .fancybox__container {
     --fancybox-bg: rgba(10, 10, 10, 0.4);
 }
+
+.mod-dev {
+    opacity: 0.6 !important;
+    -webkit-filter: saturate(0%) !important;
+    filter: saturate(0%) !important;
+}
