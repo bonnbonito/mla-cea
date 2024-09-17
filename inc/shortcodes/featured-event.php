@@ -9,6 +9,9 @@ if ( ! $featured_event ) {
 
 foreach ( $featured_event as $post ) :
 	setup_postdata( $post );
+	$event_date      = get_field( 'event_date' );
+		$date        = DateTime::createFromFormat( 'd/m/Y h:i a', $event_date );
+		$date_format = $date->format( 'jS F Y g:i a' );
 	?>
 <div class="featured-event flex gap-4 items-start">
 	<div class="grow flex gap-4">
@@ -22,7 +25,7 @@ foreach ( $featured_event as $post ) :
 
 			<div
 				class="text-cea-grey text-xs leading-4 uppercase font-[500] border-t-[2px] pt-2 border-[#E1E1E1] border-solid border-x-0 border-b-0 mb-4">
-				<?php echo get_field( 'event_date' ); ?> - <?php echo get_field( 'location' ); ?>
+				<?php echo $date_format; ?> - <?php echo get_field( 'location' ); ?>
 			</div>
 
 			<a href="<?php the_permalink(); ?>" class="text-cea-red text-[12px] tracking-[1px] font-[500]">VIEW EVENT
