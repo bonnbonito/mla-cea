@@ -165,3 +165,9 @@ body .fancybox__container {
     border-top-left-radius: 8px;
     overflow: hidden;
 }
+
+.event-image img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}

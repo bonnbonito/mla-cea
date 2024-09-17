@@ -17,7 +17,7 @@ foreach ( $featured_event as $post ) :
 	<div class="grow flex gap-4">
 		<?php if ( has_post_thumbnail() ) : ?>
 		<div class="event-image shadow-md p-2 bg-white">
-			<?php the_post_thumbnail( 'medium' ); ?>
+			<?php the_post_thumbnail( 'full' ); ?>
 		</div>
 		<?php endif; ?>
 		<div class="p-4 max-w-[415px]">
