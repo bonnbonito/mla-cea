@@ -13,7 +13,7 @@ foreach ( $featured_event as $post ) :
 		$date        = DateTime::createFromFormat( 'd/m/Y h:i a', $event_date );
 		$date_format = $date->format( 'jS F Y g:i a' );
 	?>
-<div class="featured-event flex-col-reverse md:flex gap-4 items-start">
+<div class="featured-event flex-col-reverse flex md:flex-row gap-4 items-start">
 	<div class="grow flex gap-4">
 		<?php if ( has_post_thumbnail() ) : ?>
 		<div class="event-image shadow-md p-2 bg-white">
@@ -33,7 +33,7 @@ foreach ( $featured_event as $post ) :
 
 		</div>
 	</div>
-	<span class="text-white uppercase p-1 text-sm bg-cea-red inline-block mt-4 md:mt-0">Featured Event</span>
+	<span class="text-white uppercase p-1 text-sm bg-cea-red inline-block ">Featured Event</span>
 </div>
 	<?php
 	endforeach;
