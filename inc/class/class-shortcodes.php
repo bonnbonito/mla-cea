@@ -36,14 +36,22 @@ class Shortcodes {
 		add_shortcode( 'members_filter', array( $this, 'members_filter' ) );
 		add_shortcode( 'resource_filter', array( $this, 'resource_filter' ) );
 		add_shortcode( 'people_filter', array( $this, 'people_filter' ) );
+		add_shortcode( 'events_filter', array( $this, 'events_filter' ) );
 		add_shortcode( 'guidance_docs', array( $this, 'guidance_docs' ) );
 		add_shortcode( 'single_resource', array( $this, 'single_resource' ) );
+		add_shortcode( 'featured_event', array( $this, 'featured_event' ) );
 		add_shortcode( 'certification_contents', array( $this, 'certification_contents' ) );
 	}
 
 	public function certification_contents() {
 		ob_start();
 		get_template_part( 'inc/shortcodes/certification', 'contents' );
+		return ob_get_clean();
+	}
+
+	public function featured_event() {
+		ob_start();
+		get_template_part( 'inc/shortcodes/featured', 'event' );
 		return ob_get_clean();
 	}
 
@@ -154,6 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		return ob_get_clean();
 	}
+
 	/**
 	 * Filters the content of the membership.
 	 *
@@ -165,6 +174,27 @@ document.addEventListener('DOMContentLoaded', () => {
 		ob_start();
 
 		get_template_part( 'inc/shortcodes/members', 'filter' );
+
+		wp_enqueue_style( 'fancybox' );
+		wp_enqueue_script( 'fancybox' );
+		wp_enqueue_script( 'mla-cea-filter' );
+
+		$this->fancybox_footer_init();
+
+		return ob_get_clean();
+	}
+
+	/**
+	 * Filters the content of the events.
+	 *
+	 * @param array $atts The shortcode attributes.
+	 * @return string The filtered content.
+	 */
+	public function events_filter() {
+
+		ob_start();
+
+		get_template_part( 'inc/shortcodes/events', 'filter' );
 
 		wp_enqueue_style( 'fancybox' );
 		wp_enqueue_script( 'fancybox' );

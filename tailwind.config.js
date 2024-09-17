@@ -8,6 +8,7 @@ module.exports = {
 				'cea-light-orange': '#fb9900e6',
 				'cea-red': '#c20201',
 				'cea-blue': '#058bb1',
+				'cea-grey': '#231f2080',
 			},
 			ringColor: {
 				DEFAULT: '#0000',

@@ -152,3 +152,16 @@ body .fancybox__container {
     -webkit-filter: saturate(0%) !important;
     filter: saturate(0%) !important;
 }
+
+.event-loop-img img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    opacity: .5;
+}
+
+.event-loop-img {
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    overflow: hidden;
+}
