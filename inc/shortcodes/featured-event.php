@@ -33,7 +33,7 @@ foreach ( $featured_event as $post ) :
 
 		</div>
 	</div>
-	<span class="text-white uppercase p-1 text-sm bg-cea-red inline-block ">Featured Event</span>
+	<span class="text-white uppercase p-1 text-sm bg-cea-red inline-block mt-4 md:mt-0">Featured Event</span>
 </div>
 	<?php
 	endforeach;
