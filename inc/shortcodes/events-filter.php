@@ -78,7 +78,7 @@ if ( $query->have_posts() ) {
 </div>
 
 
-<div class="grid md:grid-cols-3 gap-3 mt-20 mb-5">
+<div class="grid md:grid-cols-3 gap-4 md:gap-3 mt-20 mb-5">
 
 	<?php
 	while ( $query->have_posts() ) {
