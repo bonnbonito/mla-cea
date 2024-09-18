@@ -41,6 +41,13 @@ class Shortcodes {
 		add_shortcode( 'single_resource', array( $this, 'single_resource' ) );
 		add_shortcode( 'featured_event', array( $this, 'featured_event' ) );
 		add_shortcode( 'certification_contents', array( $this, 'certification_contents' ) );
+		add_shortcode( 'location_date', array( $this, 'location_date' ) );
+	}
+
+	public function location_date() {
+		ob_start();
+		echo get_field( 'location' ) . ' - ' . get_field( 'event_date' );
+		return ob_get_clean();
 	}
 
 	public function certification_contents() {
